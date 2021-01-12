@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/colorWhite">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header_login">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imvClosePost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_close_24"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" /> //Tắt đăng bài post
+
+                <TextView
+                    android:id="@+id/tvPosting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:text="Post"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="18dp"
+                    android:textStyle="bold" /> //Thêm bài viết
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            style="@style/Divider">
+        </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/avatar"
+                    android:layout_gravity="start" />
+                <TextView
+                    android:id="@+id/tvUserPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"/> //Ten nguoi dang bai post
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/edtContextPost"
+                android:layout_width="410dp"
+                android:layout_height="200dp"
+                android:hint="Hôm nay ăn gì?"
+                android:inputType="textMultiLine"
+                android:minLines="5"
+                android:ellipsize="end"
+                android:textSize="14dp"
+                android:textStyle="normal">
+            </EditText>
+            <ImageButton
+                android:id="@+id/imgBtnChooseImage"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tvPosting"
+                android:layout_marginLeft="330dp"
+                android:src="@drawable/ic_baseline_camera_enhance_24">
+
+            </ImageButton>
+            <ImageView
+                android:id="@+id/imvPhotos"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@id/edtContextPost"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true" > //Xử lý sự kiện phóng to ảnh
+
+            </ImageView>
+        </LinearLayout>
+    </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/circle3"
+            android:layout_width="182dp"
+            android:layout_height="170dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="-60dp"
+            android:layout_marginBottom="-40dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/circle" />
+
+        <ImageView
+            android:id="@+id/circle4"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginBottom="-80dp"
+            android:layout_toLeftOf="@+id/circle3"
+            android:src="@drawable/circletransparant" />
+        <ImageView
+            android:id="@+id/circle5"
+            android:layout_width="182dp"
+            android:layout_height="170dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="250dp"
+            android:layout_marginBottom="-40dp"
+            android:src="@drawable/circle"/>
+
+</LinearLayout>
