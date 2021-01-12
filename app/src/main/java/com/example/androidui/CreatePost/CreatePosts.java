@@ -29,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.androidui.MainActivity.MainActivity;
 import com.example.androidui.R;
 
 import java.io.ByteArrayOutputStream;
@@ -84,7 +85,7 @@ public class CreatePosts extends AppCompatActivity {
         String dataURI = sharedpreferences.getString("dataURI","");
 
         //API link
-        String ServerName = "https://whatwhatfood.herokuapp.com/uploadimagebase64";
+        String ServerName = "https://whatfoods.herokuapp.com/uploadimagebase64";
 
         //Setting Post Method
         StringRequest stringRequest = new StringRequest(Request.Method.POST, ServerName,
@@ -145,7 +146,7 @@ public class CreatePosts extends AppCompatActivity {
         String ImageURL = sharedpreferences.getString("ImageURL", "");
 
         //API link
-        String ServerName = "https://whatwhatfood.herokuapp.com/createpost";
+        String ServerName = "https://whatfoods.herokuapp.com/createpost";
 
         //Setting Post Method
         StringRequest stringRequest = new StringRequest(Request.Method.POST, ServerName,
@@ -155,8 +156,10 @@ public class CreatePosts extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         System.out.println(response);
+
                         //Show Toast
                         Toast.makeText(CreatePosts.this, "CreatePost Successful", Toast.LENGTH_SHORT).show();
+
                         finish();
                     }
                 },

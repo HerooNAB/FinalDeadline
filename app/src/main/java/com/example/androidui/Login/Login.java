@@ -39,11 +39,8 @@ import java.util.regex.Pattern;
 
 public class Login extends AppCompatActivity {
 
-    private TextView tvRegister;
     private EditText edtPhoneNumber, edtPassword;
     private Button btnSubmit, btnLogin;
-    RequestQueue requestQueue;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +52,6 @@ public class Login extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(submitLogin);
-
-
-        String inputPhone = edtPhoneNumber.getText().toString().trim();
 
         edtPhoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
