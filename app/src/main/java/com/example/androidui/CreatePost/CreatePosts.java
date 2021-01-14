@@ -159,8 +159,8 @@ public class CreatePosts extends AppCompatActivity {
 
                         //Show Toast
                         Toast.makeText(CreatePosts.this, "CreatePost Successful", Toast.LENGTH_SHORT).show();
-
-                        finish();
+                        Intent intent = new Intent(CreatePosts.this, MainActivity.class);
+                        startActivity(intent);
                     }
                 },
 

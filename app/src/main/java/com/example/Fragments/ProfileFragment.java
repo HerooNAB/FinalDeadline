@@ -107,6 +107,18 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+        loadUser();
+        loadMyPosts();
+        super.onResume();
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Khai báo SharePrefs
@@ -121,6 +133,7 @@ public class ProfileFragment extends Fragment {
         rvMyPosts.setHasFixedSize(true);
         rvMyPosts.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
+        onResume();
 
 
         //Nut Edit
@@ -150,8 +163,6 @@ public class ProfileFragment extends Fragment {
         imgProfile = (CircleImageView) view.findViewById(R.id.imgProfile);
         tvDisplayEmail = (TextView) view.findViewById(R.id.tvDisplayEmail);
 
-        loadUser();
-        loadMyPosts();
 
         return view;
     }

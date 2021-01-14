@@ -98,9 +98,11 @@ import static android.provider.CalendarContract.CalendarCache.URI;
         bundle.getString("bio");
         bundle.getString("email");
         bundle.getString("avatar");
+        String avatar = bundle.getString("avatar");
         etName.setText(getIntent().getStringExtra("name"));
         etBio.setText(getIntent().getStringExtra("bio"));
         etMail.setText(getIntent().getStringExtra("email"));
+        Picasso.get().load(avatar).into(imgProfile);
 
     }
 
