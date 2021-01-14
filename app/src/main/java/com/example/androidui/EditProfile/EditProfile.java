@@ -260,12 +260,11 @@ import static android.provider.CalendarContract.CalendarCache.URI;
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
                         if (selectedImage != null) {
-                            byte[] imageBytes = imageToByteArray(selectedImage);
-                            String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT); // actual conversion to Base64 String Image
+                            String base64Image = encodeImageBitmap(selectedImage);
                             SharedPreferences.Editor editor = sharedpreferences.edit();
-                            editor.putString("dataURI", encodedImage);
+                            editor.putString("dataURI", base64Image);
                             editor.commit();
-                            System.out.println(encodedImage);
+                            System.out.println(base64Image);
                             System.out.println("alo alo");
                             UploadImage();
 
@@ -290,12 +289,11 @@ import static android.provider.CalendarContract.CalendarCache.URI;
 
                                 Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
                                 if (bitmap != null) {
-                                    byte[] imageBytes = imageToByteArray(bitmap);
-                                    String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT); // actual conversion to Base64 String Image
+                                    String base64Image = encodeImageBitmap(bitmap);
                                     SharedPreferences.Editor editor = sharedpreferences.edit();
-                                    editor.putString("dataURI", encodedImage);
+                                    editor.putString("dataURI", base64Image);
                                     editor.commit();
-                                    System.out.println(encodedImage);
+                                    System.out.println(base64Image);
                                     System.out.println("alo alo gallery");
                                     UploadImage();
                                 }
@@ -310,10 +308,14 @@ import static android.provider.CalendarContract.CalendarCache.URI;
             }
         }
     }
-    private byte[] imageToByteArray(Bitmap bitmapImage) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmapImage.compress(Bitmap.CompressFormat.JPEG, 20, baos);
-        return baos.toByteArray();
-    }
+        private String encodeImageBitmap(Bitmap bm)
+        {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bm.compress(Bitmap.CompressFormat.JPEG,100,baos);
+            byte[] b = baos.toByteArray();
+            String encImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+            return encImage;
+        }
 }
 
