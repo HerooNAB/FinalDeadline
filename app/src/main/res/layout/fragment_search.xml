@@ -7,14 +7,14 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bar"
+        android:id="@+id/barSearch"
         android:background="?android:attr/windowBackground">
 
         <Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
-            android:id="@+id/toolbar">
+            android:id="@+id/toolbarSearch">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -26,17 +26,30 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="10dp"
-                android:id="@+id/search_bar"
+                android:id="@+id/edtSearch"
                 android:hint="Search..."
                 android:layout_marginStart="10dp" />
 
         </Toolbar>
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="310dp"
+            android:layout_height="wrap_content"
+            android:text="Search"/>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bar"
-        android:id="@+id/recycler_view"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/barSearch">
+
+        <ListView
+            android:id="@+id/lvSearchUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </ScrollView>
 
 </RelativeLayout>

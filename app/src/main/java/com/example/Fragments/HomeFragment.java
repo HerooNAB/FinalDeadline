@@ -101,11 +101,6 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-
-
-
-
-
     public void loadListPost() {
         SharedPreferences sharedpreferences;
         sharedpreferences = this.getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
