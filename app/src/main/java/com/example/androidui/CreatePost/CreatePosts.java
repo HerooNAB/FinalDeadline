@@ -245,8 +245,6 @@ public class CreatePosts extends AppCompatActivity {
                             SharedPreferences.Editor editor = sharedpreferences.edit();
                             editor.putString("dataURI", base64Image);
                             editor.commit();
-                            System.out.println(base64Image);
-                            System.out.println("alo alo");
                             UploadImage();
                         }
                         imvPhotos.setImageBitmap(selectedImage);
